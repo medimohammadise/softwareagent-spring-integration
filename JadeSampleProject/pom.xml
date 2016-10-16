@@ -4,10 +4,16 @@
   <artifactId>JadeSampleProject</artifactId>
   <version>0.0.1-SNAPSHOT</version>
   <dependencies>
-  	<dependency>
-  		<groupId>net.sf.ingenias</groupId>
-  		<artifactId>jade</artifactId>
-  		<version>4.3</version>
-  	</dependency>
+  	<dependency>  
+	    <groupId>com.tilab.jade</groupId> 
+	    <artifactId>jade</artifactId> 
+	    <version>4.4.0</version>  
+	</dependency>
   </dependencies>
+  <repositories>
+	  <repository> 
+	    <id>tilab</id> 
+	    <url>http://jade.tilab.com/maven/</url> 
+	</repository>
+</repositories>
 </project>
