@@ -16,6 +16,7 @@ public class MessageReciever extends Agent{
 		String localname = "Peter";
 		AID id = new AID(localname, AID.ISLOCALNAME);
 		addBehaviour(
+				//doing a job for more than once
 		new CyclicBehaviour() {
 			
 			@Override

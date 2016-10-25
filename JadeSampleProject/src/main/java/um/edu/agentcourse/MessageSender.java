@@ -11,6 +11,7 @@ public class MessageSender extends Agent{
 		String localname = "Peter";
 		AID id = new AID(localname, AID.ISLOCALNAME);
 		addBehaviour(
+				//do the job only once
 		new OneShotBehaviour() {
 			
 			@Override
