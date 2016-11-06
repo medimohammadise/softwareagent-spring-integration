@@ -9,7 +9,8 @@ public class MainAppBoot extends Agent {
 		
 		if
 		(args.length == 0) {
-		String[] args1 = {"-gui","-agents","\"MessageSender\":um.edu.agentcourse.MessageSender;\"MessageReciever\":um.edu.agentcourse.MessageReciever;\"SchedulerAgent\":um.edu.agentcourse.SchedulerAgent;"};
+		String[] args1 = {"-gui","-agents","\"MessageSender\":um.edu.agentcourse.MessageSender(test1,test2,test3);\"MessageReciever\":um.edu.agentcourse.MessageReciever;\"SchedulerAgent\":um.edu.agentcourse.SchedulerAgent;",
+				"-name foo-platform"};
 		args = args1;
 		}
 		Boot b=new Boot();
