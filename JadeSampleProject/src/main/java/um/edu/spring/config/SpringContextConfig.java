@@ -19,7 +19,7 @@ import org.springframework.transaction.annotation.Transactional;
 
 import com.zaxxer.hikari.HikariDataSource;
 @Configuration
-@ComponentScan (basePackages = {"um.edu.spring.controller"})
+@ComponentScan (basePackages={"um.edu.spring.controller","um.edu.agentcourse.persistance.delegate","um.edu.agentcourse"})
 //Spring Data JPA
 @EnableJpaRepositories(basePackages ={"um.edu.agentcourse.persistance.domain"})
 @EnableTransactionManagement 

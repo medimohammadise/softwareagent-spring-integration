@@ -72,7 +72,12 @@
 		    <artifactId>jade4spring</artifactId>
 		    <version>RELEASE</version>
 		</dependency>
-		 
+		  <!-- Data and Time utility -->
+		<dependency>
+		  <groupId>joda-time</groupId>
+		  <artifactId>joda-time</artifactId>
+		  <version>2.9.4</version>
+		</dependency>
 	</dependencies>
 		<repositories>
 			  <repository> 

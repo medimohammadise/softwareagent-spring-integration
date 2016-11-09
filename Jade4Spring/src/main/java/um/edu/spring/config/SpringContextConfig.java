@@ -21,13 +21,14 @@ import org.springframework.transaction.annotation.Transactional;
 
 import com.zaxxer.hikari.HikariDataSource;
 
+import agentproject.my.agents.SchedulerAgent;
 import agentproject.my.agents.TestAgent;
 import jade.core.Agent;
 import net.sf.jade4spring.JadeBean;
 @Configuration
-@ComponentScan (basePackages={"agentproject.my.controller"})
+@ComponentScan (basePackages={"agentproject.my.controller","agentproject.my.delegate"})
 //Spring Data JPA
-@EnableJpaRepositories(basePackages ={"um.edu.agentcourse.persistance.domain"})
+@EnableJpaRepositories(basePackages ={"agentproject.my.persisitance.domain"})
 @EnableTransactionManagement 
 @Transactional
 public class SpringContextConfig {
@@ -38,10 +39,10 @@ public class SpringContextConfig {
 		jpaProperties.setProperty("hibernate.dialect", "org.hibernate.dialect.MySQLDialect");
 		jpaProperties.setProperty("hibernate.connection.driver_class", "com.mysql.jdbc.Driver");
 		jpaProperties.setProperty("show_sql", "true");
-		jpaProperties.setProperty("hibernate.hbm2ddl.auto","create-drop");
+		jpaProperties.setProperty("hibernate.hbm2ddl.auto","update");
 		//jpaProperties.setProperty("hibernate.connection.url", "jdbc:oracle://localhost:1522/orcl11g");
 		entityManagerFactory.setJpaProperties(jpaProperties);
-		entityManagerFactory.setPackagesToScan("um.edu.agentcourse.persistance.model");
+		entityManagerFactory.setPackagesToScan("agentproject.my.persistance.model");
 		entityManagerFactory.setPersistenceProvider(new HibernatePersistenceProvider());
 		HibernateJpaVendorAdapter vendorAdapter = new HibernateJpaVendorAdapter();
 		vendorAdapter.setGenerateDdl(false);
@@ -92,6 +93,6 @@ public class SpringContextConfig {
 	
 	@Bean
 	public Agent getTestAgent(){
-		return new TestAgent();
+		return new SchedulerAgent();
 }
 }
