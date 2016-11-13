@@ -21,8 +21,8 @@ public class UserProfileDelegate {
 	public List<UserProfiles> getUserProfiles(){
 		return userProfileRepository.findAll();
 	}
-	public MessageRule getMessageRules(long age){
-		return messageRuleRepository.findMessageRule(age);
+	public MessageRule getMessageRules(long age,String gender){
+		return messageRuleRepository.findMessageRule(age,gender);
 	}
 
 }

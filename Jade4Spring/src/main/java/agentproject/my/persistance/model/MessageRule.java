@@ -8,9 +8,11 @@ import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.Table;
 
+import jade.util.leap.Serializable;
+
 @Entity
 @Table(name="messge_rule")
-public class MessageRule {
+public class MessageRule implements Serializable{
 	public long getId() {
 		return id;
 	}

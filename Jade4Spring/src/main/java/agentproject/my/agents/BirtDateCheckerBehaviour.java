@@ -1,6 +1,8 @@
 package agentproject.my.agents;
 
+import java.io.IOException;
 import java.util.Date;
+import jade.util.leap.Properties;
 
 import org.joda.time.DateTime;
 import org.joda.time.DateTimeComparator;
@@ -39,11 +41,17 @@ public class BirtDateCheckerBehaviour extends TickerBehaviour {
 				
 				Years age = Years.yearsBetween(birthDate, now);
 				System.out.println("Looking for age : "+age);
-				MessageRule messageRule= userProfileDelegate.getMessageRules(age.getYears());
+				MessageRule messageRule= userProfileDelegate.getMessageRules(age.getYears(),userProfile.getGender());
 				System.out.println("Happy BirthDay "+messageRule.getMessage());
 				/*final SimpleMailMessage email = constructEmailMessage(messageRule.getMessage());
 		         this.mailSender.send(email);*/
 				ACLMessage message=new ACLMessage(ACLMessage.INFORM);
+				Properties properties=new Properties();
+				properties.setProperty("to", userProfile.getEmail());
+				properties.setProperty("id", Long.toString(userProfile.getId()));
+				properties.setProperty("message",String.format(messageRule.getMessage(),userProfile.getName()));
+				message.setAllUserDefinedParameters(properties);
+				
 				message.setContent(messageRule.getMessage());
 				message.addReceiver(new AID("emailAgent",AID.ISLOCALNAME));
 				this.getAgent().send(message);
