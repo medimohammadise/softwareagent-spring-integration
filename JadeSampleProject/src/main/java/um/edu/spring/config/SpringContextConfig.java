@@ -32,7 +32,7 @@ public class SpringContextConfig {
 		jpaProperties.setProperty("hibernate.dialect", "org.hibernate.dialect.MySQLDialect");
 		jpaProperties.setProperty("hibernate.connection.driver_class", "com.mysql.jdbc.Driver");
 		jpaProperties.setProperty("show_sql", "true");
-		jpaProperties.setProperty("hibernate.hbm2ddl.auto","create-drop");
+		jpaProperties.setProperty("hibernate.hbm2ddl.auto","update");
 		//jpaProperties.setProperty("hibernate.connection.url", "jdbc:oracle://localhost:1522/orcl11g");
 		entityManagerFactory.setJpaProperties(jpaProperties);
 		entityManagerFactory.setPackagesToScan("um.edu.agentcourse.persistance.model");

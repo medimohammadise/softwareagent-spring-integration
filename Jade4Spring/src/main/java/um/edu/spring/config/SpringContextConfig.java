@@ -86,6 +86,7 @@ public class SpringContextConfig {
 		PersistenceExceptionTranslationPostProcessor exceptionTranslation(){
 			return new PersistenceExceptionTranslationPostProcessor();	
 		}
+	
 	@Bean(initMethod="startContainer",destroyMethod="stopContainer") 
 	JadeBean getJadeBean(){
 		System.out.println("Jade is starting");
